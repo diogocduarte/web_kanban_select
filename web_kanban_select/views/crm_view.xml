@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+    <!-- Extend CRM Lead Kanban View  -->
+        <record model="ir.ui.view" id="crm_case_kanban_view_leads_inherit">
+            <field name="name">CRM - Leads Kanban</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+            <field name="arch" type="xml">
+            <xpath expr="//div[@class='o_kanban_footer']" position="before">
+				<div class="text-muted">
+                		<field name="user_id" widget="select" method="/website/get_users"/>
+                </div>
+            </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
